@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.8:3306/xczy?charset=utf8&serverTimezone=UTC
+
+    tomcat:
+    #连接池的最大数据库连接数。设为0表示无限制。
+      max-active: 20
+      test-while-idle: true
+      #该选项用来验证数据库连接的有效性。
+      #SELECT 1(mysql), select 1 from dual(oracle), SELECT 1(MS Sql Server) 。
+      validation-query: select 1
+      default-auto-commit: false
+      min-idle: 15
+      initial-size: 15
+      #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+      max-wait:
+
+#是否显示sql语句和自动更新表结构
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  thymeleaf:
+    cache: false
+#      服务的端口号
+server:
+  port: 8080
+#  ssl:
+#    key-store: .keystore
+#    key-password: 123456
+#    key-store-type: JKS
+#    key-alias: tomcat
+
+
+
+
